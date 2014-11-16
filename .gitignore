@@ -4,3 +4,4 @@ dist
 .sass-cache
 src/bower_components
 .idea
+.DS_Store
