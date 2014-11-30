@@ -1,7 +1,9 @@
 {
   "name": "joek",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "angular-load": "^0.2.0"
+  },
   "devDependencies": {
     "gulp": "^3.8.0",
     "gulp-autoprefixer": "^0.0.6",

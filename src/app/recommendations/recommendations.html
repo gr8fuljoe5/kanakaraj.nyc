@@ -1,0 +1,10 @@
+<div class="panel">
+  <h1>Recommendations</h1>
+  <blockquote data-ng-repeat="recommendation in recommendations" class="panel callout radius">
+    <i class="fa fa-quote-left"></i>
+    {{recommendation.recommendationText}}
+    <i class="fa fa-quote-right"></i>
+    <cite data-ng-hide="recommendation.recommender.firstName === 'private'">{{recommendation.recommender.firstName}} {{recommendation.recommender.lastName}}</cite>
+  </blockquote>
+
+</div>

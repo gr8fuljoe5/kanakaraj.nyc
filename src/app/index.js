@@ -1,4 +1,4 @@
-angular.module('joek', ['restangular', 'ui.router'])
+angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('base', {
@@ -29,9 +29,70 @@ angular.module('joek', ['restangular', 'ui.router'])
         url: 'about',
         templateUrl: 'app/about/about.html',
         controller: function($log){
-            $log.log('MAIN CONTROLLER INITIATED');
+            $log.log('about CONTROLLER INITIATED');
+        }
+      })
+      .state('base.skillset', {
+        url: 'skillset',
+        templateUrl: 'app/skillset/skillset.html',
+        controller: function($log){
+          $log.log('skillset CONTROLLER INITIATED');
+        }
+      }).state('base.recommendations', {
+        url: 'recommendations',
+        templateUrl: 'app/recommendations/recommendations.html',
+        controller: function($log, $scope){
+          $log.log('recommendations CONTROLLER INITIATED');
+
+          IN.API.Profile("me").fields(
+            [ "id", "firstName", "lastName", "pictureUrl",
+              "recommendations-received" ]).result(function(result) {
+              //set the model
+              $scope.$apply(function() {
+                $scope.jsondata = result.values[0];
+                $scope.recommendations = result.values[0].recommendationsReceived.values;
+                $log.log(result.values[0].recommendationsReceived.values);
+              });
+            }).error(function(err) {
+              $scope.$apply(function() {
+                $scope.error = err;
+              });
+            });
+
+
+
+          //IN.init({
+          //    'api_key': '77x21bjyyai92t',
+          //    'authorize': true
+          //});
+
+          //$scope.IN = IN.API;
+          //
+          //$log.log(IN);
+          //$log.log(IN.API)
+          //
+          //$scope.$watch('IN', function(){
+          //  if(IN.API.Profile()){
+          //    $log.log(IN.API.Profile("me").fields(["firstName","headline"]).result(function(result) {console.log(result)}));
+          //
+          //  }
+          //
+          //});
+
+          //IN.API.Profile("me");
+
+
+            //.fields(["firstName","headline"])
+            //.result(function(result) {
+            //  $log.log(result);
+            //});
+
+
+
         }
       });
+
+    //
 
     $urlRouterProvider.otherwise('/');
   })
