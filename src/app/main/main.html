@@ -1,21 +1,41 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="row offset-top">
-  <div class="large-12 large-text-center columns">
+
+<div class="row main animated lightSpeedIn">
+  <section class="small-10 large-10 columns">
     <div class="panel">
-      <h1>Joe Kanakaraj</h1>
-      <p>I'm basically a product of the late 90's dot com explosion in NYC. Over the years, not only have I refined my technical skills, but also my skills in project management, user experience design, information architecture, and client relations.</p>
-
-       <p> Specialties: HTML5, CSS3, Javascript, jQuery, NodeJS, Backbone, Angular, GruntJS, Yeoman, Bower, XSLT/XPath, JSTL, JSP, PHP, Groovy, Freemarker, UI Design, UX architecture, graphic design, project management. Familiar with GIT, SVN and CVS.</p>
+      <h1>Joseph F. Kanakaraj</h1>
+      <h5>Front-end Developer // User Interface Engineer // Technical Architect</h5>
     </div>
-  </div>
-</div>
+    <section ui-view></section>
+    <!--<div class="panel callout radius" data-ng-repeat="recommendation in recommendations">-->
+      <!--dfdfdfd-->
+      <!--<h5>{{recommendation.recommender.firstName}} {{recommendation.recommender.firstLast}}, {{recommendation.code}}</h5>-->
+
+      <!--<p>{{ recommendation.recommendationText }}</p>-->
+    <!--</div>-->
+
+  </section>
+  <aside class="small-2 large-2 columns">
+    <div class="icon-bar vertical four-up">
+      <a class="item" ui-sref="base.about">
+        <i class="fa fa-binoculars"></i>
+        <label>About</label>
+      </a>
+      <a class="item">
+        <i class="fa fa-laptop"></i>
+        <label>Portfolio</label>
+      </a>
+      <a class="item">
+        <i class="fa fa-at"></i>
+        <label>Social</label>
+      </a>
+      <a class="item">
+        <i class="fa fa-quote-right"></i>
+        <label style="font-size:10px;">Recommendations</label>
+      </a>
+    </div>
+  </aside>
 
 
 
-<div class="row">
-  <div class="large-12 columns">
-    <hr>
-    <p>With ♥ by <a href="https://twitter.com/joekanakaraj">@joekanakaraj</a></p>
-  </div>
 </div>

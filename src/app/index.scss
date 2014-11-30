@@ -1,4 +1,5 @@
 @import "assets";
+@import "animate";
 
 html, body {
   background: url(../assets/photos/bk_bg.jpg) no-repeat center center fixed;
@@ -8,12 +9,10 @@ html, body {
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/photos/bk_bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../assets/photos/bk_bg.jpg', sizingMethod='scale')";
-  font-family: 'Oswald', sans-serif;
-  //font-family: 'Shadows Into Light', cursive;
+  font-family: 'Raleway', sans-serif;
 }
-
-h1 {
-  font-family: 'Shadows Into Light', cursive;
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Raleway', sans-serif;
 }
 
 .browsehappy {
@@ -23,35 +22,26 @@ h1 {
   padding: 0.2em 0;
 }
 
-.panel {
-  margin-top: 50px;
-  background-color: rgba(41, 139, 204, 0.85);
-
-
+.header {
+  &__nav{
+    @include animation('dropDown 2s');
+    margin-top:-100px;
+    animation: dropDown 2s;
+    margin-top:0px;
+  }
+}
+.main {
   h1 {
-    opacity:1;
-    color:#fff;
+    font-size:30px;
+  }
+  h2 {
+    font-size:26px;
   }
 }
 
-.th {
-  width: 100%;
-  height: 200px;
-
-  img.right {
-    width: 50px;
-  }
+.fed {
+  -vendor-animation-delay: 12s;
 }
-
-.top-bar-section {
-  i {
-    padding-right:10px;
-  }
-  a:hover {
-    color:#007295 !important;
-  }
-}
-
 
 
 

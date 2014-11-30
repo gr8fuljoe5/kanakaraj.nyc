@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
   <!-- build:css({.tmp,app}) styles/vendor.css -->
   <link rel="stylesheet" href="app/vendor.css">
 
@@ -23,15 +22,25 @@
 
   <!-- build:js(.) scripts/modernizr.js -->
   <script src="bower_components/modernizr/modernizr.js"></script>
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+    api_key: 77x21bjyyai92t
+    authorize: true
+
+  </script>
   <!-- endbuild -->
 </head>
-<body>
+<body class="grayscale">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ui-view class="container"></div>
+<!--<header ng-include="'components/navbar/navbar.html'" class="row"></header>-->
+<!--<section class="container" data-ng-include="'app/main/main.html'"></section>-->
+<!--<footer>FOOTER</footer>-->
 
+<header class="row" ui-view="header"></header>
+<section class="row" ui-view="main"></section>
+<footer class="row" ui-view="footer"></footer>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
   (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
