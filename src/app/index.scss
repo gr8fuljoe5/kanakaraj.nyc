@@ -46,6 +46,20 @@ h1,h2,h3,h4,h5,h6 {
 cite {
   color:#de2b0f;
 }
+.big-three {
+  margin-left:27px;
+}
+
+.toolbox-chart {
+  rect {
+    fill: steelblue;
+  }
+  text {
+    fill: white;
+    font: 10px sans-serif;
+    text-anchor: end;
+  }
+}
 
 .logo {
   background:url(../assets/images/web-logos.png) no-repeat;
@@ -53,16 +67,15 @@ cite {
   height: 276px;
   width: 182px;
   background-size: 287%;
-  border: 1px solid red;
   text-indent: -9999em;
   &.html{
     background-position:5px 0;
   }
   &.css{
-    background-position:-167px 0;
+    background-position:-168px 0;
   }
   &.javascript{
-    background-position:-446px 0;
+    background-position:-345px 0;
   }
 }
 
