@@ -137,38 +137,6 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
                 });
               });
           },500);
-
-
-
-
-          //IN.init({
-          //    'api_key': '77x21bjyyai92t',
-          //    'authorize': true
-          //});
-
-          //$scope.IN = IN.API;
-          //
-          //$log.log(IN);
-          //$log.log(IN.API)
-          //
-          //$scope.$watch('IN', function(){
-          //  if(IN.API.Profile()){
-          //    $log.log(IN.API.Profile("me").fields(["firstName","headline"]).result(function(result) {console.log(result)}));
-          //
-          //  }
-          //
-          //});
-
-          //IN.API.Profile("me");
-
-
-            //.fields(["firstName","headline"])
-            //.result(function(result) {
-            //  $log.log(result);
-            //});
-
-
-
         }
       });
 
