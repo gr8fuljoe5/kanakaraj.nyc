@@ -11,7 +11,7 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
             }]
           },
           'footer' : {
-            template: '<div>{{text}}}</div>',
+            templateUrl: 'components/footer/footer.html',
             controller: ['$scope', '$log', function($scope,$log){
               $scope.text = 'FOOTER GOES HERE!';
             }]
@@ -41,23 +41,26 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
       }).state('base.recommendations', {
         url: 'recommendations',
         templateUrl: 'app/recommendations/recommendations.html',
-        controller: function($log, $scope){
+        controller: function($log, $scope, $timeout){
           $log.log('recommendations CONTROLLER INITIATED');
+          $timeout(function(){
+            $log.log('timeout');
+            IN.API.Profile("me").fields(
+              [ "id", "firstName", "lastName", "pictureUrl",
+                "recommendations-received" ]).result(function(result) {
+                //set the model
+                $scope.$apply(function() {
+                  $scope.jsondata = result.values[0];
+                  $scope.recommendations = result.values[0].recommendationsReceived.values;
+                  $log.log(result.values[0].recommendationsReceived.values);
+                });
+              }).error(function(err) {
+                $scope.$apply(function() {
+                  $scope.error = err;
+                });
+              });
+          },500);
 
-          IN.API.Profile("me").fields(
-            [ "id", "firstName", "lastName", "pictureUrl",
-              "recommendations-received" ]).result(function(result) {
-              //set the model
-              $scope.$apply(function() {
-                $scope.jsondata = result.values[0];
-                $scope.recommendations = result.values[0].recommendationsReceived.values;
-                $log.log(result.values[0].recommendationsReceived.values);
-              });
-            }).error(function(err) {
-              $scope.$apply(function() {
-                $scope.error = err;
-              });
-            });
 
 
 
