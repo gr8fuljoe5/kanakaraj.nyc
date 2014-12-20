@@ -1,5 +1,6 @@
 <div class="panel">
   <h1>Recommendations</h1>
+  <blockquote class="panal callout radius" data-ng-hide="dataLoaded"><i class="fa fa-circle-o-notch fa-spin"></i> Loading from LinkedIn...</blockquote>
   <blockquote data-ng-repeat="recommendation in recommendations" class="panel callout radius">
     <i class="fa fa-quote-left"></i>
     {{recommendation.recommendationText}}

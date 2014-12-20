@@ -49,6 +49,7 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
               [ "id", "firstName", "lastName", "pictureUrl",
                 "recommendations-received" ]).result(function(result) {
                 //set the model
+                $scope.dataLoaded = true;
                 $scope.$apply(function() {
                   $scope.jsondata = result.values[0];
                   $scope.recommendations = result.values[0].recommendationsReceived.values;

@@ -47,8 +47,27 @@ cite {
   color:#de2b0f;
 }
 
+.logo {
+  background:url(../assets/images/web-logos.png) no-repeat;
+  display: block;
+  height: 276px;
+  width: 182px;
+  background-size: 287%;
+  border: 1px solid red;
+  text-indent: -9999em;
+  &.html{
+    background-position:5px 0;
+  }
+  &.css{
+    background-position:-167px 0;
+  }
+  &.javascript{
+    background-position:-446px 0;
+  }
+}
+
 footer {
-   margin-top:10px;
+  margin-top:10px;
   width:100%;
   background-color:#007295;
   padding:5px;
