@@ -23,8 +23,8 @@
 
 
 @keyframes panelFadeIn {
-   0%   { @include alpha-attribute('background-color', rgba(41, 139, 204, 0), white); }
-   100% { @include alpha-attribute('background-color', rgba(41, 139, 204, .9), white); }
+  0%   { @include alpha-attribute('background-color', rgba(41, 139, 204, 0), white); }
+  100% { @include alpha-attribute('background-color', rgba(41, 139, 204, .9), white); }
 
 }
 
@@ -40,4 +40,3 @@
   }
 
 }
-
