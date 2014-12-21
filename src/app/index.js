@@ -67,12 +67,7 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
           $interval(function(){
             //$log.log('interval');
             generateQuote();
-
-
           },10000);
-
-
-
 
           var colors = [
             '132,112,255',
@@ -142,6 +137,6 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
 
     //
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/about');
   })
 ;
