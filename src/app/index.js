@@ -1,4 +1,4 @@
-angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
+angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-inview'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('base', {
@@ -35,9 +35,8 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
       .state('base.skillset', {
         url: 'skillset',
         templateUrl: 'app/skillset/skillset.html',
-        controller: function($log, $interval, $scope){
+        controller: function($log, $interval){
           $log.log('skillset CONTROLLER INITIATED');
-
           var quotes = [
             {"text": "Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.",
               "author" : "Linus Torvalds"},
@@ -87,8 +86,6 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad'])
 
           chart.each(function(d,i){
             var thisChart = d3.select(this);
-            $log.log(i);
-
 
             var attrs = {
               'stroke' : 'none',
