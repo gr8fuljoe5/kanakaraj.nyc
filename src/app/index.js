@@ -32,6 +32,17 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
             $log.log('about CONTROLLER INITIATED');
         }
       })
+      .state('base.instagram', {
+        url: 'instagram',
+        templateUrl : 'app/instagram/instagram.html',
+        controller: function($log, $scope, $http){
+          $log.log('instagram');
+          $http.jsonp('https://api.instagram.com/v1/media/popular?client_id=06546d31fc9c4e5bb74dd257902c348d').success(function(response){
+            $log.log(response);
+          });
+
+        }
+      })
       .state('base.skillset', {
         url: 'skillset',
         templateUrl: 'app/skillset/skillset.html',
@@ -101,8 +112,8 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
               .attr('width', 0)
               .attr('fill','rgb(30,144,255)')
               .transition()
-              .delay(3000)
-              .duration(1500)
+              .delay(500)
+              .duration(5000)
               .attr(attrs)
           });
         }
@@ -128,7 +139,7 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
                   $scope.error = err;
                 });
               });
-          },500);
+          },1000);
         }
       });
 
