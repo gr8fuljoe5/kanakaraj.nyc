@@ -65,6 +65,7 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
             .jsonp('https://api.instagram.com/v1/users/524310/media/recent/?access_token='+myConfig.instagram+'&callback=JSON_CALLBACK').success(function(res){
               $log.log(res);
               $scope.images = res.data;
+              $log.log('test');
           });
 
         }
