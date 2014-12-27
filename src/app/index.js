@@ -1,5 +1,10 @@
 angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-inview'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .constant("myConfig", {
+    "url": "http://localhost",
+    "port": "80"
+  })
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $stateProvider
       .state('base', {
         url: '/',
@@ -18,9 +23,27 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
           },
           'main' : {
             templateUrl : 'app/main/main.html',
-            controller: ['$scope', '$log', function($scope,$log){
+            controller: [
+              '$scope',
+              '$log',
+              '$state',
+              '$stateParams',
+              '$location',
+              'myConfig',
+              function($scope,$log,$state,$stateParams,$location,myConfig){
               $scope.main = 'header';
               $log.log('main section initiated');
+              $log.log($location.hash());
+
+              var hash = $location.hash().split('access_token=');
+              if(hash.length === 2){
+                _.assign(myConfig, {instagram: hash[1]});
+                $log.log('myConfig', myConfig);
+                $state.go('base.instagram');
+              }
+
+
+
             }]
           }
         }
@@ -35,10 +58,13 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
       .state('base.instagram', {
         url: 'instagram',
         templateUrl : 'app/instagram/instagram.html',
-        controller: function($log, $scope, $http){
+        controller: function($log, $scope, $http, myConfig){
           $log.log('instagram');
-          $http.jsonp('https://api.instagram.com/v1/media/popular?client_id=06546d31fc9c4e5bb74dd257902c348d').success(function(response){
-            $log.log(response);
+          $log.log(myConfig);
+          $http
+            .jsonp('https://api.instagram.com/v1/users/524310/media/recent/?access_token='+myConfig.instagram+'&callback=JSON_CALLBACK').success(function(res){
+              $log.log(res);
+              $scope.images = res.data;
           });
 
         }
@@ -145,6 +171,6 @@ angular.module('joek', ['restangular', 'ui.router', 'angularLoad', 'angular-invi
 
     //
 
-    $urlRouterProvider.otherwise('/about');
+    $urlRouterProvider.otherwise('/');
   })
 ;

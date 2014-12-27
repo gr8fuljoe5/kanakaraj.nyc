@@ -1,6 +1,14 @@
 <div class="panel">
   <h1>Instagram</h1>
   <a href="https://instagram.com/oauth/authorize/?client_id=5fb2ccfdfb4e4944b1efb5a18a08d58c&amp;redirect_uri=http://localhost:3000/index.html#/instagram&amp;response_type=token">Authorize</a>
+  <ul class="clearing-thumbs"  data-clearing>
+    <li data-ng-repeat="image in images">
+      <a class="th" href="{{image.images.high_resolution.url}}">
+        <img src="{{image.images.low_resolution.url}}" width="160" height="160"/>
+      </a>
+    </li>
+  </ul>
+
 </div>
 
 
